@@ -44,6 +44,4 @@ def on_start(channel)
   exchange
 end
 
-binding.pry
-
-exchange = on_start(channel) 
+exchange = on_start(channel)
