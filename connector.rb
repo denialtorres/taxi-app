@@ -44,4 +44,17 @@ def on_start(channel)
   exchange
 end
 
+def order_taxi(taxi, exchange)
+  payload = "example-message"
+  message_id = rand
+  exchange.publish(payload,
+    routing_key: taxi,
+    content_type: "application/json",
+    content_encoding: "UTF-8",
+    persistent: true,
+    message_id: message_id
+  )
+end
+
 exchange = on_start(channel)
+order_taxi("taxi.1", exchange)
